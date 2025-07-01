@@ -1,0 +1,47 @@
+name: Release & Generate Version
+
+on:
+  push:
+    tags:
+      - "v*" # Triggers only on version tags like v1.0.2
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code with full history and tags ✅
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true # 👈 THIS is critical to download the real EXE file
+
+      - name: Read version from tag
+        id: vars
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create version.json
+        run: |
+          echo '{
+            "version": "'${{ steps.vars.outputs.version }}'",
+            "notes": "Automatic release for version '${{ steps.vars.outputs.version }}'",
+            "url": "https://github.com/${{ github.repository }}/releases/download/v${{ steps.vars.outputs.version }}/protel-power-support.exe"
+          }' > version.json
+
+      - name: Upload version.json to GitHub Pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          keep_files: true
+
+      - name: Upload EXE to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          files: .temp-prod/dist/protel-power-support.exe
+          draft: false
+          generate_release_notes: true
