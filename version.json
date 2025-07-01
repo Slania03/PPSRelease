@@ -1,1 +1,5 @@
-{ "version": "1.0.0", "notes": "Initial release", "url": "" } 
+{
+  "version": "0.1.0",
+  "notes": "Automatic release for version 0.1.0",
+  "url": "https://github.com/Slania03/PPSRelease/releases/download/v0.1.0/protel-power-support.exe"
+}
