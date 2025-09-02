@@ -1,0 +1,93 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="incident">
+    <!-- your original attributes -->
+    <attribute name="ticketnumber"/>
+    <attribute name="prioritycode"/>
+    <attribute name="title"/>
+    <attribute name="customerid"/>
+    <attribute name="ownerid"/>
+    <attribute name="statuscode"/>
+    <attribute name="createdon"/>
+    <attribute name="statecode"/>
+    <attribute name="modifiedon"/>
+    <attribute name="modifiedby"/>
+    <attribute name="followupby"/>
+    <attribute name="createdby"/>
+    <attribute name="pro_casenumber"/>
+    <attribute name="casetypecode"/>
+    <attribute name="pro_casestatusdetailid"/>
+    <attribute name="pro_casecategoryid"/>
+    <attribute name="subjectid"/>
+    <attribute name="productid"/>
+    <attribute name="incidentid"/>
+    <attribute name="processid"/>
+    <attribute name="responsiblecontactid"/>
+
+    <order attribute="followupby" descending="true"/>
+
+    <!-- your filters unchanged -->
+    <filter type="and">
+      <condition attribute="statecode" operator="eq" value="0"/>
+      <filter type="or">
+        <condition attribute="subjectid" operator="in">
+          <value uiname="O-BOF MC" uitype="subject">{584FB5D5-41D4-DD11-96AC-001F29EF959E}</value>
+          <value uiname="R-Simpra INVENTORY" uitype="subject">{EDA7BC4D-4825-EA11-811F-005056A004F0}</value>
+        </condition>
+        <condition attribute="subjectid" operator="null"/>
+      </filter>
+      <condition attribute="pro_casestatusdetailid" operator="not-in">
+        <value uiname="Güncelleme - Planlanacak" uitype="pro_casestatusdetail">{40013FAB-E92B-E711-80DD-005056A004F0}</value>
+        <value uiname="Güncelleme - Müşteri update kabul etmedi" uitype="pro_casestatusdetail">{3E013FAB-E92B-E711-80DD-005056A004F0}</value>
+        <value uiname="Güncelleme - MAC Onay Bekliyor" uitype="pro_casestatusdetail">{3C013FAB-E92B-E711-80DD-005056A004F0}</value>
+        <value uiname="Güncelleme - Release bekliyor" uitype="pro_casestatusdetail">{42013FAB-E92B-E711-80DD-005056A004F0}</value>
+        <value uiname="Üretici firma - işlem yapacak" uitype="pro_casestatusdetail">{5A013FAB-E92B-E711-80DD-005056A004F0}</value>
+      </condition>
+      <condition attribute="statuscode" operator="not-in">
+        <value>6</value>
+        <value>166110002</value>
+      </condition>
+    </filter>
+
+    <!-- OWNER: if user-owned -->
+    <link-entity name="systemuser" from="systemuserid" to="ownerid" alias="own" link-type="outer">
+      <attribute name="fullname" alias="owner_fullname"/>
+      <attribute name="domainname" alias="owner_domain"/>
+    </link-entity>
+
+    <!-- OWNER: if team-owned -->
+    <link-entity name="team" from="teamid" to="ownerid" alias="ownteam" link-type="outer">
+      <attribute name="name" alias="owner_teamname"/>
+    </link-entity>
+
+    <!-- CUSTOMER: account path -->
+    <link-entity name="account" from="accountid" to="customerid" alias="acc" link-type="outer">
+      <attribute name="name" alias="account_name"/>
+      <attribute name="accountnumber" alias="account_number"/>
+    </link-entity>
+
+    <!-- CUSTOMER: contact path -->
+    <link-entity name="contact" from="contactid" to="customerid" alias="con" link-type="outer">
+      <attribute name="fullname" alias="contact_name"/>
+      <attribute name="emailaddress1" alias="contact_email"/>
+    </link-entity>
+
+    <!-- Optional labels for quick readability -->
+    <link-entity name="subject" from="subjectid" to="subjectid" alias="sub" link-type="outer">
+      <attribute name="title" alias="subject_title"/>
+    </link-entity>
+
+    <link-entity name="product" from="productid" to="productid" alias="prd" link-type="outer">
+      <attribute name="name" alias="product_name"/>
+    </link-entity>
+
+    <link-entity name="pro_casestatusdetail" from="pro_casestatusdetailid" to="pro_casestatusdetailid" alias="csd" link-type="outer">
+      <attribute name="pro_name" alias="statusdetail_name"/>
+    </link-entity>
+
+    <!-- If you want process name/version too -->
+    <link-entity name="workflow" from="workflowid" to="processid" alias="flow" link-type="outer">
+      <attribute name="name" alias="process_name"/>
+      <attribute name="versionnumber" alias="process_version"/>
+    </link-entity>
+  </entity>
+</fetch>
