@@ -22,6 +22,7 @@
     <attribute name="incidentid"/>
     <attribute name="processid"/>
     <attribute name="responsiblecontactid"/>
+    <attribute name="description"/>
 
     <order attribute="followupby" descending="true"/>
 
@@ -91,3 +92,4 @@
     </link-entity>
   </entity>
 </fetch>
+
