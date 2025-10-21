@@ -41,7 +41,6 @@
         <value uiname="Güncelleme - Müşteri update kabul etmedi" uitype="pro_casestatusdetail">{3E013FAB-E92B-E711-80DD-005056A004F0}</value>
         <value uiname="Güncelleme - MAC Onay Bekliyor" uitype="pro_casestatusdetail">{3C013FAB-E92B-E711-80DD-005056A004F0}</value>
         <value uiname="Güncelleme - Release bekliyor" uitype="pro_casestatusdetail">{42013FAB-E92B-E711-80DD-005056A004F0}</value>
-        <value uiname="Üretici firma - işlem yapacak" uitype="pro_casestatusdetail">{5A013FAB-E92B-E711-80DD-005056A004F0}</value>
       </condition>
       <condition attribute="statuscode" operator="not-in">
         <value>6</value>
@@ -92,3 +91,4 @@
     </link-entity>
   </entity>
 </fetch>
+
