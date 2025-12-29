@@ -1,0 +1,22 @@
+[
+  {
+    "id": "nginx-access",
+    "name": "Nginx Access Log",
+    "active": true,
+    "regex": "^(?<ip>\\S+) - (?<user>\\S+) \\[(?<timestamp>[^\\]]+)\\] \"(?<method>\\S+) (?<url>\\S+) (?<protocol>\\S+)\" (?<status>\\d+) (?<bytes>\\d+) ...",
+    "dateFormat": "dd/MMM/yyyy:HH:mm:ss Z"
+  },
+  {
+    "id": "laravel-log",
+    "name": "Laravel Log",
+    "active": true,
+    "regex": "^\\[(?<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] (?<env>\\w+)\\.(?<level>\\w+): (?<message>.*)",
+    "dateFormat": "yyyy-MM-dd HH:mm:ss"
+  },
+  {
+    "id": "simple-bracket",
+    "name": "Simple Bracket [INFO]",
+    "active": true,
+    "regex": "^\\[(?<timestamp>[^\\]]+)\\]\\s+(?<level>\\w+):\\s+(?<message>.*)"
+  }
+]

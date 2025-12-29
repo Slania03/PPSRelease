@@ -1,0 +1,30 @@
+[
+  {
+    "id": "gemini",
+    "name": "Google Gemini",
+    "description": "Google'ın en gelişmiş çok modlu AI modeli. (Varsayılan)",
+    "url": "https://gemini.google.com/app",
+    "icon": "✨"
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "description": "OpenAI tarafından geliştirilen sohbet botu.",
+    "url": "https://chatgpt.com/",
+    "icon": "🤖"
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "description": "Anthropic'in güvenli ve yardımsever AI asistanı.",
+    "url": "https://claude.ai/new",
+    "icon": "🧠"
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "description": "Kodlama konusunda uzmanlaşmış güçlü model.",
+    "url": "https://chat.deepseek.com/",
+    "icon": "🐳"
+  }
+]
