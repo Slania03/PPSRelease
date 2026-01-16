@@ -6,14 +6,13 @@
       "options": [
         {
           "label": "Evet",
-          "//": "This injects multiple questions into the flow sequentially",
-          "nextQuestions": ["q_erp", "q_transfer"], 
+          "nextId": "q_erp",
           "addLicense": {
             "name": "Inventory Property (Base)",
             "description": "Stok yönetimi için temel lisans.",
             "type": "required"
           },
-          "note": "Temel modül eklendi. Şimdi ek modülleri belirleyelim."
+          "note": "Temel modül eklendi. Şimdi entegrasyon detaylarını belirleyelim."
         },
         {
           "label": "Hayır",
@@ -26,34 +25,86 @@
       ]
     },
     "q_erp": {
-      "question": "Muhasebe/ERP programlarına otomatik aktarım yapılacak mı?",
+      "question": "Muhasebe Programlarına veya ERP'ye aktarım isteniyor mu?",
       "options": [
         {
           "label": "Evet",
-          "addLicense": {
-            "name": "Inventory ERP Integration",
-            "description": "Logo, Mikro vb. entegrasyonlar için gereklidir.",
-            "type": "addon"
-          }
+          "nextId": "q_erp_detail",
+          "note": "Hangi yöntemin kullanılacağını belirlememiz gerekiyor."
         },
         {
-          "label": "Hayır"
+          "label": "Hayır",
+          "nextId": "q_efatura",
+          "note": "ERP entegrasyonu atlandı."
         }
       ]
     },
-    "q_transfer": {
-      "question": "Stok kartlarının detaylı (API ile) aktarılması gerekiyor mu?",
+    "q_erp_detail": {
+      "question": "Stok kartlarının detaylı (kart bazında) olarak aktarılması gerekiyor mu?",
+      "options": [
+        {
+          "label": "Evet (Detaylı/API)",
+          "nextId": "q_efatura",
+          "addLicense": {
+            "name": "Simpra Inventory Connect",
+            "description": "API üzerinden detaylı stok ve reçete aktarımı sağlar.",
+            "type": "addon"
+          },
+          "note": "Detaylı aktarım için API lisansı eklendi."
+        },
+        {
+          "label": "Hayır (Özet/Portal)",
+          "nextId": "q_efatura",
+          "addLicense": {
+            "name": "Simpra Inventory Portal",
+            "description": "Protel Portal ürünü üzerinden özet aktarım sağlar.",
+            "type": "addon"
+          },
+          "note": "Detaysız aktarım için Portal lisansı eklendi."
+        }
+      ]
+    },
+    "q_efatura": {
+      "question": "Kullanıcı gelen E-Faturaların/E-İrsaliyelerin direkt Simpra Inventory'e düşmesini istiyor mu?",
       "options": [
         {
           "label": "Evet",
+          "nextId": "q_integrator"
+        },
+        {
+          "label": "Hayır",
+          "isTerminal": true,
+          "result": {
+            "title": "Tamamlandı",
+            "message": "Lisans belirleme işlemi tamamlandı."
+          }
+        }
+      ]
+    },
+    "q_integrator": {
+      "question": "Kullanıcı şu entegratörlerden biriyle mi çalışıyor: PortalPlus, Sovos Digital Planet veya Logo Connect?",
+      "options": [
+        {
+          "label": "Evet",
+          "isTerminal": true,
           "addLicense": {
-            "name": "Inventory Connect",
-            "description": "3. Parti yazılımlara detaylı stok verisi açar.",
+            "name": "Simpra Inventory E-fatura/E-irsaliye",
+            "description": "Gelen fatura ve irsaliyelerin otomatik işlenmesini sağlar.",
             "type": "addon"
+          },
+          "result": {
+            "title": "Tamamlandı",
+            "message": "Gerekli tüm lisanslar sepete eklendi."
           }
         },
         {
-          "label": "Hayır"
+          "label": "Hayır",
+          "isTerminal": true,
+          "result": {
+            "title": "Uyarı: Entegratör Desteklenmiyor",
+            "message": "Entegrasyon yapılamaz. Yalnızca PortalPlus, Sovos ve Logo Connect ile e-fatura entegrasyonu yapılabilir.",
+            "type": "warning"
+          }
         }
       ]
     }
