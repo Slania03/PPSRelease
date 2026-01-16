@@ -35,8 +35,6 @@
         {
           "label": "Oracle Simphony",
           "nextId": "q_erp_intro",
-          "nextQuestions": ["q_erp_intro"], 
-          "//": "Using array to support adding multiple licenses if needed in code logic, though single obj works too",
           "addLicense": {
             "name": "Simpra Inventory Şube Ana Modül",
             "description": "3. Parti POS için temel lisans + Extension.OracleSimphony.",
@@ -60,7 +58,7 @@
             "description": "Entegrasyonsuz temel lisans.",
             "type": "required"
           },
-          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri aktarılamayacktır!!"
+          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri manuel veya Excel ile aktarılmalıdır."
         }
       ]
     },
@@ -84,38 +82,30 @@
       "options": [
         {
           "label": "Logo ERP",
-          "nextId": "q_efatura",
-          "addLicense": {
-            "name": "Extension.LOGOERP",
-            "description": "Logo ERP ile doğrudan entegrasyon.",
-            "type": "addon"
-          }
+          "nextId": "q_erp_detail",
+          "note": "Logo seçildi. Detay seviyesi belirlenecek."
         },
         {
           "label": "Xero ERP",
-          "nextId": "q_efatura",
-          "addLicense": {
-            "name": "Extension.XeroErp",
-            "description": "Xero Accounting ile doğrudan entegrasyon.",
-            "type": "addon"
-          }
+          "nextId": "q_erp_detail",
+          "note": "Xero seçildi. Detay seviyesi belirlenecek."
         },
         {
           "label": "Hayır / Diğer",
           "nextId": "q_erp_detail",
-          "note": "Özel entegrasyon seçenekleri kontrol edilecek."
+          "note": "Diğer ERP. Detay seviyesi belirlenecek."
         }
       ]
     },
     "q_erp_detail": {
-      "question": "Diğer yazılımlar için stok kartlarının detaylı (API ile) olarak aktarılması gerekiyor mu?",
+      "question": "Stok kartlarının detaylı (kart bazında/API) olarak aktarılması gerekiyor mu?",
       "options": [
         {
           "label": "Evet (Detaylı/API)",
           "nextId": "q_efatura",
           "addLicense": {
             "name": "Simpra Inventory Connect (API)",
-            "description": "API üzerinden detaylı stok ve reçete aktarımı sağlar.",
+            "description": "Detaylı aktarım için API lisansı verilmiştir.",
             "type": "addon"
           }
         },
@@ -123,8 +113,8 @@
           "label": "Hayır (Özet/Portal)",
           "nextId": "q_efatura",
           "addLicense": {
-            "name": "Simpra Inventory Portal",
-            "description": "Protel Portal ürünü üzerinden özet aktarım sağlar.",
+            "name": "Protel Portal",
+            "description": "Detaysız aktarım için Portal ürünü verilmiştir.",
             "type": "addon"
           }
         }
@@ -154,61 +144,61 @@
           "label": "PortalPlus",
           "isTerminal": true,
           "addLicense": {
-            "name": "Extension.PortalPlusE-irsaliye",
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
             "description": "PortalPlus e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": { "title": "Tamamlandı", "message": "PortalPlus entegrasyonu eklendi." }
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
         },
         {
           "label": "Dia Entegratör",
           "isTerminal": true,
           "addLicense": {
-            "name": "Extension.DiaEntegrator",
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
             "description": "Dia Yazılım e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": { "title": "Tamamlandı", "message": "Dia entegrasyonu eklendi." }
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
         },
         {
           "label": "Protel Entegratör",
           "isTerminal": true,
           "addLicense": {
-            "name": "Extension.ProtelEntegrator",
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
             "description": "Protel e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": { "title": "Tamamlandı", "message": "Protel entegrasyonu eklendi." }
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
         },
         {
           "label": "Sovos Digital Planet",
           "isTerminal": true,
           "addLicense": {
-            "name": "Extension.SovosDigitalPlanet",
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
             "description": "Sovos/Digital Planet e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": { "title": "Tamamlandı", "message": "Sovos entegrasyonu eklendi." }
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
         },
         {
           "label": "E-Logo Entegratör",
           "isTerminal": true,
           "addLicense": {
-            "name": "Extension.E-LogoEntegrator",
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
             "description": "Logo e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": { "title": "Tamamlandı", "message": "E-Logo entegrasyonu eklendi." }
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
         },
         {
           "label": "QNB Finansbank",
           "isTerminal": true,
           "addLicense": {
-            "name": "Extension.QNBE-Finans",
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
             "description": "QNB e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": { "title": "Tamamlandı", "message": "QNB entegrasyonu eklendi." }
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
         },
         {
           "label": "Hiçbiri / Diğer",
