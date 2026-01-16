@@ -1,0 +1,61 @@
+{
+  "startNodeId": "q1",
+  "nodes": {
+    "q1": {
+      "question": "Kullanıcılar Stok/Maliyet yönetimi yapmak istiyor mu?",
+      "options": [
+        {
+          "label": "Evet",
+          "//": "This injects multiple questions into the flow sequentially",
+          "nextQuestions": ["q_erp", "q_transfer"], 
+          "addLicense": {
+            "name": "Inventory Property (Base)",
+            "description": "Stok yönetimi için temel lisans.",
+            "type": "required"
+          },
+          "note": "Temel modül eklendi. Şimdi ek modülleri belirleyelim."
+        },
+        {
+          "label": "Hayır",
+          "isTerminal": true,
+          "result": {
+            "title": "İhtiyaç Yok",
+            "message": "Kullanıcının Inventory ürününe ihtiyacı yoktur."
+          }
+        }
+      ]
+    },
+    "q_erp": {
+      "question": "Muhasebe/ERP programlarına otomatik aktarım yapılacak mı?",
+      "options": [
+        {
+          "label": "Evet",
+          "addLicense": {
+            "name": "Inventory ERP Integration",
+            "description": "Logo, Mikro vb. entegrasyonlar için gereklidir.",
+            "type": "addon"
+          }
+        },
+        {
+          "label": "Hayır"
+        }
+      ]
+    },
+    "q_transfer": {
+      "question": "Stok kartlarının detaylı (API ile) aktarılması gerekiyor mu?",
+      "options": [
+        {
+          "label": "Evet",
+          "addLicense": {
+            "name": "Inventory Connect",
+            "description": "3. Parti yazılımlara detaylı stok verisi açar.",
+            "type": "addon"
+          }
+        },
+        {
+          "label": "Hayır"
+        }
+      ]
+    }
+  }
+}
