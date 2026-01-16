@@ -60,7 +60,7 @@
             "description": "Entegrasyonsuz temel lisans.",
             "type": "required"
           },
-          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri manuel veya Excel ile aktarılmalıdır."
+          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri aktarılamayacktır!!"
         }
       ]
     },
