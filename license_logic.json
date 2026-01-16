@@ -88,7 +88,7 @@
           "label": "Evet",
           "isTerminal": true,
           "addLicense": {
-            "name": "Simpra Inventory E-fatura/E-irsaliye",
+            "name": "Simpra Inventory Connect E-fatura/E-irsaliye",
             "description": "Gelen fatura ve irsaliyelerin otomatik işlenmesini sağlar.",
             "type": "addon"
           },
