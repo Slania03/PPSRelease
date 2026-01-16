@@ -6,13 +6,8 @@
       "options": [
         {
           "label": "Evet",
-          "nextId": "q_erp",
-          "addLicense": {
-            "name": "Inventory Property (Base)",
-            "description": "Stok yönetimi için temel lisans.",
-            "type": "required"
-          },
-          "note": "Temel modül eklendi. Şimdi entegrasyon detaylarını belirleyelim."
+          "nextId": "q_pos",
+          "note": "Stok yönetimi seçildi. Şimdi POS kaynağını belirleyelim."
         },
         {
           "label": "Hayır",
@@ -24,13 +19,58 @@
         }
       ]
     },
-    "q_erp": {
+    "q_pos": {
+      "question": "Hangi POS sistemi kullanılıyor?",
+      "options": [
+        {
+          "label": "SimpraPOS",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Property",
+            "description": "SimpraPOS kullanıcıları için temel lisans (Extension.SimpraPOS dahil).",
+            "type": "required"
+          },
+          "note": "Simpra ekosistemi seçildi."
+        },
+        {
+          "label": "Oracle Simphony",
+          "nextId": "q_erp_intro",
+          "nextQuestions": ["q_erp_intro"], 
+          "//": "Using array to support adding multiple licenses if needed in code logic, though single obj works too",
+          "addLicense": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "description": "3. Parti POS için temel lisans + Extension.OracleSimphony.",
+            "type": "required"
+          }
+        },
+        {
+          "label": "Micros 3700",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "description": "3. Parti POS için temel lisans + Extension.Micros3700.",
+            "type": "required"
+          }
+        },
+        {
+          "label": "Diğer / Yok",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "description": "Entegrasyonsuz temel lisans.",
+            "type": "required"
+          },
+          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri manuel veya Excel ile aktarılmalıdır."
+        }
+      ]
+    },
+    "q_erp_intro": {
       "question": "Muhasebe Programlarına veya ERP'ye aktarım isteniyor mu?",
       "options": [
         {
           "label": "Evet",
-          "nextId": "q_erp_detail",
-          "note": "Hangi yöntemin kullanılacağını belirlememiz gerekiyor."
+          "nextId": "q_erp_brand",
+          "note": "ERP markası belirleniyor."
         },
         {
           "label": "Hayır",
@@ -39,18 +79,45 @@
         }
       ]
     },
+    "q_erp_brand": {
+      "question": "Kullanıcı Logo veya Xero ERP/Muhasebe yazılımı kullanıyor mu?",
+      "options": [
+        {
+          "label": "Logo ERP",
+          "nextId": "q_efatura",
+          "addLicense": {
+            "name": "Extension.LOGOERP",
+            "description": "Logo ERP ile doğrudan entegrasyon.",
+            "type": "addon"
+          }
+        },
+        {
+          "label": "Xero ERP",
+          "nextId": "q_efatura",
+          "addLicense": {
+            "name": "Extension.XeroErp",
+            "description": "Xero Accounting ile doğrudan entegrasyon.",
+            "type": "addon"
+          }
+        },
+        {
+          "label": "Hayır / Diğer",
+          "nextId": "q_erp_detail",
+          "note": "Özel entegrasyon seçenekleri kontrol edilecek."
+        }
+      ]
+    },
     "q_erp_detail": {
-      "question": "Stok kartlarının detaylı (kart bazında) olarak aktarılması gerekiyor mu?",
+      "question": "Diğer yazılımlar için stok kartlarının detaylı (API ile) olarak aktarılması gerekiyor mu?",
       "options": [
         {
           "label": "Evet (Detaylı/API)",
           "nextId": "q_efatura",
           "addLicense": {
-            "name": "Simpra Inventory Connect",
+            "name": "Simpra Inventory Connect (API)",
             "description": "API üzerinden detaylı stok ve reçete aktarımı sağlar.",
             "type": "addon"
-          },
-          "note": "Detaylı aktarım için API lisansı eklendi."
+          }
         },
         {
           "label": "Hayır (Özet/Portal)",
@@ -59,8 +126,7 @@
             "name": "Simpra Inventory Portal",
             "description": "Protel Portal ürünü üzerinden özet aktarım sağlar.",
             "type": "addon"
-          },
-          "note": "Detaysız aktarım için Portal lisansı eklendi."
+          }
         }
       ]
     },
@@ -82,27 +148,74 @@
       ]
     },
     "q_integrator": {
-      "question": "Kullanıcı şu entegratörlerden biriyle mi çalışıyor: PortalPlus, Sovos Digital Planet veya Logo Connect?",
+      "question": "Kullanıcı hangi entegratör ile çalışıyor?",
       "options": [
         {
-          "label": "Evet",
+          "label": "PortalPlus",
           "isTerminal": true,
           "addLicense": {
-            "name": "Simpra Inventory Connect E-fatura/E-irsaliye",
-            "description": "Gelen fatura ve irsaliyelerin otomatik işlenmesini sağlar.",
+            "name": "Extension.PortalPlusE-irsaliye",
+            "description": "PortalPlus e-dönüşüm entegrasyonu.",
             "type": "addon"
           },
-          "result": {
-            "title": "Tamamlandı",
-            "message": "Gerekli tüm lisanslar sepete eklendi."
-          }
+          "result": { "title": "Tamamlandı", "message": "PortalPlus entegrasyonu eklendi." }
         },
         {
-          "label": "Hayır",
+          "label": "Dia Entegratör",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Extension.DiaEntegrator",
+            "description": "Dia Yazılım e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Dia entegrasyonu eklendi." }
+        },
+        {
+          "label": "Protel Entegratör",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Extension.ProtelEntegrator",
+            "description": "Protel e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Protel entegrasyonu eklendi." }
+        },
+        {
+          "label": "Sovos Digital Planet",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Extension.SovosDigitalPlanet",
+            "description": "Sovos/Digital Planet e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Sovos entegrasyonu eklendi." }
+        },
+        {
+          "label": "E-Logo Entegratör",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Extension.E-LogoEntegrator",
+            "description": "Logo e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "E-Logo entegrasyonu eklendi." }
+        },
+        {
+          "label": "QNB Finansbank",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Extension.QNBE-Finans",
+            "description": "QNB e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "QNB entegrasyonu eklendi." }
+        },
+        {
+          "label": "Hiçbiri / Diğer",
           "isTerminal": true,
           "result": {
-            "title": "Uyarı: Entegratör Desteklenmiyor",
-            "message": "Entegrasyon yapılamaz. Yalnızca PortalPlus, Sovos ve Logo Connect ile e-fatura entegrasyonu yapılabilir.",
+            "title": "Uyarı: Desteklenmeyen Entegratör",
+            "message": "Sadece listedeki entegratörler (PortalPlus, Dia, Protel, Sovos, Logo, QNB) desteklenmektedir.",
             "type": "warning"
           }
         }
