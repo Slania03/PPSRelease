@@ -1,0 +1,215 @@
+{
+  "startNodeId": "q1",
+  "nodes": {
+    "q1": {
+      "question": "Kullanıcılar Stok/Maliyet yönetimi yapmak istiyor mu?",
+      "options": [
+        {
+          "label": "Evet",
+          "nextId": "q_pos",
+          "note": "Stok yönetimi seçildi. Şimdi POS kaynağını belirleyelim."
+        },
+        {
+          "label": "Hayır",
+          "isTerminal": true,
+          "result": {
+            "title": "İhtiyaç Yok",
+            "message": "Kullanıcının Inventory ürününe ihtiyacı yoktur."
+          }
+        }
+      ]
+    },
+    "q_pos": {
+      "question": "Hangi POS sistemi kullanılıyor?",
+      "options": [
+        {
+          "label": "SimpraPOS",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Property",
+            "description": "SimpraPOS kullanıcıları için temel lisans (Extension.SimpraPOS dahil).",
+            "type": "required"
+          },
+          "note": "Simpra ekosistemi seçildi."
+        },
+        {
+          "label": "Oracle Simphony",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "description": "3. Parti POS için temel lisans + Extension.OracleSimphony.",
+            "type": "required"
+          }
+        },
+        {
+          "label": "Micros 3700",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "description": "3. Parti POS için temel lisans + Extension.Micros3700.",
+            "type": "required"
+          }
+        },
+        {
+          "label": "Diğer / Yok",
+          "nextId": "q_erp_intro",
+          "addLicense": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "description": "Entegrasyonsuz temel lisans.",
+            "type": "required"
+          },
+          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri manuel veya Excel ile aktarılmalıdır."
+        }
+      ]
+    },
+    "q_erp_intro": {
+      "question": "Muhasebe Programlarına veya ERP'ye aktarım isteniyor mu?",
+      "options": [
+        {
+          "label": "Evet",
+          "nextId": "q_erp_brand",
+          "note": "ERP markası belirleniyor."
+        },
+        {
+          "label": "Hayır",
+          "nextId": "q_efatura",
+          "note": "ERP entegrasyonu atlandı."
+        }
+      ]
+    },
+    "q_erp_brand": {
+      "question": "Kullanıcı Logo veya Xero ERP/Muhasebe yazılımı kullanıyor mu?",
+      "options": [
+        {
+          "label": "Logo ERP",
+          "nextId": "q_erp_detail",
+          "note": "Logo seçildi. Detay seviyesi belirlenecek."
+        },
+        {
+          "label": "Xero ERP",
+          "nextId": "q_erp_detail",
+          "note": "Xero seçildi. Detay seviyesi belirlenecek."
+        },
+        {
+          "label": "Hayır / Diğer",
+          "nextId": "q_erp_detail",
+          "note": "Diğer ERP. Detay seviyesi belirlenecek."
+        }
+      ]
+    },
+    "q_erp_detail": {
+      "question": "Stok kartlarının detaylı (kart bazında/API) olarak aktarılması gerekiyor mu?",
+      "options": [
+        {
+          "label": "Evet (Detaylı/API)",
+          "nextId": "q_efatura",
+          "addLicense": {
+            "name": "Simpra Inventory Connect (API)",
+            "description": "Detaylı aktarım için API lisansı verilmiştir.",
+            "type": "addon"
+          }
+        },
+        {
+          "label": "Hayır (Özet/Portal)",
+          "nextId": "q_efatura",
+          "addLicense": {
+            "name": "Protel Portal",
+            "description": "Detaysız aktarım için Portal ürünü verilmiştir.",
+            "type": "addon"
+          }
+        }
+      ]
+    },
+    "q_efatura": {
+      "question": "Kullanıcı gelen E-Faturaların/E-İrsaliyelerin direkt Simpra Inventory'e düşmesini istiyor mu?",
+      "options": [
+        {
+          "label": "Evet",
+          "nextId": "q_integrator"
+        },
+        {
+          "label": "Hayır",
+          "isTerminal": true,
+          "result": {
+            "title": "Tamamlandı",
+            "message": "Lisans belirleme işlemi tamamlandı."
+          }
+        }
+      ]
+    },
+    "q_integrator": {
+      "question": "Kullanıcı hangi entegratör ile çalışıyor?",
+      "options": [
+        {
+          "label": "PortalPlus",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "description": "PortalPlus e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
+        },
+        {
+          "label": "Dia Entegratör",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "description": "Dia Yazılım e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
+        },
+        {
+          "label": "Protel Entegratör",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "description": "Protel e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
+        },
+        {
+          "label": "Sovos Digital Planet",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "description": "Sovos/Digital Planet e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
+        },
+        {
+          "label": "E-Logo Entegratör",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "description": "Logo e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
+        },
+        {
+          "label": "QNB Finansbank",
+          "isTerminal": true,
+          "addLicense": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "description": "QNB e-dönüşüm entegrasyonu.",
+            "type": "addon"
+          },
+          "result": { "title": "Tamamlandı", "message": "Gerekli tüm lisanslar sepete eklendi." }
+        },
+        {
+          "label": "Hiçbiri / Diğer",
+          "isTerminal": true,
+          "result": {
+            "title": "Uyarı: Desteklenmeyen Entegratör",
+            "message": "Sadece listedeki entegratörler (PortalPlus, Dia, Protel, Sovos, Logo, QNB) desteklenmektedir.",
+            "type": "warning"
+          }
+        }
+      ]
+    }
+  }
+}
