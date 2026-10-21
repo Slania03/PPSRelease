@@ -1,0 +1,1406 @@
+{
+  "schemaVersion": 1,
+  "id": "protel-simpra-mainline-tr",
+  "name": "Protel & Simpra — Ana Ürünler",
+  "version": "2026.10.08.2",
+  "example": true,
+  "research": {
+    "reviewedAt": "2026-10-08",
+    "language": "tr-TR",
+    "status": "sales-reference-draft",
+    "sourcePolicy": "Ürün kapsamı resmi Protel ve Simpra sayfalarından özetlendi. Protel ana sitesinin doğrudan erişimi 403 döndüren sayfalarında arama motorundaki resmi sayfa içeriği kullanıldı. Inventory lisans kuralları için kullanıcının sağladığı license_logic.json esas alınmıştır.",
+    "licensePolicy": "Simpra Inventory lisans adları ve dallanma kuralları kullanıcının doğruladığı license_logic.json dosyasından alınmıştır. Diğer ürünlerin örnek lisans adları resmi SKU değildir.",
+    "quantityPolicy": "Her seçim bir teklif kalemidir. Oda, kullanıcı, terminal, depo ve şube bazlı lisans adetleri hesaplanmaz.",
+    "dependencyPolicy": "Koşullar bu satış görüşmesinin dallarıdır; üreticinin zorunlu teknik veya ticari lisans bağımlılıkları olduğu iddia edilmez.",
+    "cloudbedsPolicy": "Yalnızca ana PMS seçeneği; eklenti yok.",
+    "scope": [
+      "PMS",
+      "POS",
+      "Stok / Maliyet",
+      "Masa rezervasyonu",
+      "SPA / Aktivite rezervasyonu",
+      "Ana çözümleri tamamlayan seçili modüller"
+    ],
+    "excluded": [
+      "Belirli donanım modelleri ve kesin garanti/bakım paketleri",
+      "Eski nesil PMS/POS ürünlerinin yeni satışı (Micros 3700 yalnızca mevcut Inventory POS kaynağıdır)",
+      "Bağımsız muhasebe, ödeme, CRM, İK, enerji ve robot çözümleri",
+      "Kaynaklarda ayrı paket olduğu doğrulanmayan özelliklerin ek lisans olarak çoğaltılması"
+    ]
+  },
+  "brands": {
+    "oracle": {
+      "label": "Oracle",
+      "symbol": "O",
+      "color": "#c74634"
+    },
+    "simpra": {
+      "label": "Simpra",
+      "symbol": "S",
+      "color": "#7255ce"
+    },
+    "cloudbeds": {
+      "label": "Cloudbeds",
+      "symbol": "C",
+      "color": "#1976a3"
+    },
+    "protel": {
+      "label": "Protel",
+      "symbol": "P",
+      "color": "#35664d"
+    }
+  },
+  "stages": [
+    {
+      "id": "customer",
+      "label": "İşletme"
+    },
+    {
+      "id": "pms",
+      "label": "PMS"
+    },
+    {
+      "id": "pos",
+      "label": "POS & Donanım"
+    },
+    {
+      "id": "inventory",
+      "label": "Stok & Maliyet"
+    },
+    {
+      "id": "reservation",
+      "label": "Rezervasyon"
+    }
+  ],
+  "sources": {
+    "opera": {
+      "title": "OPERA Cloud ve modülleri",
+      "url": "https://www.protel.com.tr/otel-yonetim-cozumleri/opera-cloud/",
+      "accessedAt": "2026-10-08"
+    },
+    "cloudbeds": {
+      "title": "Cloudbeds PMS",
+      "url": "https://cloudbeds.protel.com.tr/otel-yonetim-sistemi/",
+      "accessedAt": "2026-10-08"
+    },
+    "pmsMobile": {
+      "title": "PMS Mobile",
+      "url": "https://www.protel.com.tr/otel-yonetim-cozumleri/pms-mobile/",
+      "accessedAt": "2026-10-08"
+    },
+    "channel": {
+      "title": "Barboon Kanal Yöneticisi",
+      "url": "https://www.protel.com.tr/otel-yonetim-cozumleri/kanal-yoneticisi/",
+      "accessedAt": "2026-10-08"
+    },
+    "booking": {
+      "title": "Barboon İnternet Rezervasyon Motoru",
+      "url": "https://www.protel.com.tr/blog/barboon-sik-sorulan-sorular/",
+      "accessedAt": "2026-10-08"
+    },
+    "simphony": {
+      "title": "MICROS Simphony Cloud ve tamamlayıcı çözümleri",
+      "url": "https://www.protel.com.tr/restoran-yonetim-cozumleri/micros-simphony-pos/",
+      "accessedAt": "2026-10-08"
+    },
+    "protelQr": {
+      "title": "Protel QR Menü",
+      "url": "https://www.protel.com.tr/restoran-yonetim-cozumleri/karekod-qr-menu/",
+      "accessedAt": "2026-10-08"
+    },
+    "protelKiosk": {
+      "title": "Protel Kiosk",
+      "url": "https://www.protel.com.tr/restoran-yonetim-cozumleri/kiosk/",
+      "accessedAt": "2026-10-08"
+    },
+    "simpraPos": {
+      "title": "Simpra POS",
+      "url": "https://simprasuite.com/restaurant-software/pos-system/",
+      "accessedAt": "2026-10-08"
+    },
+    "simpraKds": {
+      "title": "Simpra KDS",
+      "url": "https://simprasuite.com/restaurant-software/kitchen-order-display-system-kds/",
+      "accessedAt": "2026-10-08"
+    },
+    "insight": {
+      "title": "Simpra Insight",
+      "url": "https://simprasuite.com/restaurant-software/mobile-reporting/",
+      "accessedAt": "2026-10-08"
+    },
+    "simpraQr": {
+      "title": "Simpra QR Menü",
+      "url": "https://simprasuite.com/restaurant-software/qr-menu/",
+      "accessedAt": "2026-10-08"
+    },
+    "delivery": {
+      "title": "Simpra Paket Servis",
+      "url": "https://simprasuite.com/restaurant-software/delivery-services-order-program/",
+      "accessedAt": "2026-10-08"
+    },
+    "simpraKiosk": {
+      "title": "Simpra Kiosk",
+      "url": "https://simprasuite.com/restaurant-software/simpra-kiosk/",
+      "accessedAt": "2026-10-08"
+    },
+    "inventory": {
+      "title": "Simpra Inventory",
+      "url": "https://simprasuite.com/restaurant-software/stock-tracking-program/",
+      "accessedAt": "2026-10-08"
+    },
+    "mc": {
+      "title": "Materials Control",
+      "url": "https://www.protel.com.tr/otel-yonetim-cozumleri/otel-stok-takibi/",
+      "accessedAt": "2026-10-08"
+    },
+    "checkPlace": {
+      "title": "Check and Place",
+      "url": "https://www.protel.com.tr/restoran-yonetim-cozumleri/restoran-rezervasyon-takibi/",
+      "accessedAt": "2026-10-08"
+    },
+    "reservation": {
+      "title": "Simpra Reservation",
+      "url": "https://simprasuite.com/simpra-reservation/",
+      "accessedAt": "2026-10-08"
+    },
+    "ra": {
+      "title": "Reservation Assistant / SPA yönetimi",
+      "url": "https://www.protel.com.tr/otel-yonetim-cozumleri/spa-yonetim-cozumleri/",
+      "accessedAt": "2026-10-08"
+    },
+    "inventoryRules": {
+      "title": "Kullanıcının doğruladığı Inventory lisans akışı",
+      "file": "license_logic.json",
+      "providedAt": "2026-10-08"
+    }
+  },
+  "questions": [
+    {
+      "id": "business",
+      "stage": "customer",
+      "type": "choice",
+      "title": "Hangi işletme için çözüm hazırlıyoruz?",
+      "hint": "Ürün açıklamaları resmi sitelerden özetlenmiştir. Lisans adları örnektir; resmi SKU, fiyat veya paket kapsamı değildir.",
+      "options": [
+        {
+          "id": "restaurant",
+          "label": "Restoran / Kafe",
+          "description": "POS, stok/maliyet ve masa rezervasyonu ihtiyaçlarını belirleyin.",
+          "icon": "🍽️"
+        },
+        {
+          "id": "hotel",
+          "label": "Otel",
+          "description": "Önce PMS, ardından restoran, stok ve rezervasyon ihtiyaçlarını belirleyin.",
+          "icon": "🏨"
+        }
+      ]
+    },
+    {
+      "id": "rooms",
+      "stage": "customer",
+      "type": "number",
+      "title": "Otelde kaç oda var?",
+      "min": 1,
+      "max": 100000,
+      "unit": "oda",
+      "when": {
+        "question": "business",
+        "equals": "hotel"
+      },
+      "hint": "Oda sayısı teklif kapsamı için kaydedilir; bu katalogda otomatik lisans çarpanı olarak kullanılmaz."
+    },
+    {
+      "id": "customer",
+      "stage": "customer",
+      "type": "text",
+      "title": "Müşterinin / işletmenin adı nedir?"
+    },
+    {
+      "id": "pmsNeeded",
+      "stage": "pms",
+      "type": "choice",
+      "title": "Yeni bir PMS çözümü gerekiyor mu?",
+      "when": {
+        "question": "business",
+        "equals": "hotel"
+      },
+      "options": [
+        {
+          "id": "yes",
+          "label": "Evet, değerlendirelim"
+        },
+        {
+          "id": "no",
+          "label": "Hayır, şu an gerekmiyor"
+        }
+      ]
+    },
+    {
+      "id": "pms",
+      "stage": "pms",
+      "type": "choice",
+      "title": "Hangi PMS çözümünü değerlendirelim?",
+      "when": {
+        "question": "pmsNeeded",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "id": "opera",
+          "label": "Oracle OPERA Cloud PMS",
+          "brand": "oracle",
+          "description": "Rezervasyon, ön büro, oda durumu ve misafir hesaplarını birleştirir; otelin günlük işlerini merkezi yürütmeyi sağlar.",
+          "kind": "main",
+          "sourceRefs": [
+            "opera"
+          ],
+          "product": {
+            "name": "OPERA Cloud PMS Ana Çözüm Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "cloudbeds",
+          "label": "Cloudbeds PMS",
+          "brand": "cloudbeds",
+          "description": "Rezervasyon takvimi, giriş/çıkış ve otel operasyonlarını buluttan yönetir; dağınık kayıtları tek çalışma alanında toplar.",
+          "kind": "main",
+          "sourceRefs": [
+            "cloudbeds"
+          ],
+          "product": {
+            "name": "Cloudbeds PMS Ana Çözüm Aboneliği (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          },
+          "note": "Bu katalogda Cloudbeds için ek modül sunulmaz; seçimin ardından POS bölümüne geçilir."
+        }
+      ]
+    },
+    {
+      "id": "operaAddons",
+      "stage": "pms",
+      "type": "multi",
+      "title": "OPERA için hangi ek ihtiyaçlar var?",
+      "when": {
+        "question": "pms",
+        "equals": "opera"
+      },
+      "hint": "Modülün pakete dahil olup olmadığı ve entegrasyon kapsamı teklif aşamasında teyit edilir.",
+      "options": [
+        {
+          "id": "salesEvents",
+          "label": "OPERA Cloud Satış ve Etkinlik Yönetimi",
+          "brand": "oracle",
+          "description": "Toplantı ve etkinlik operasyonlarını düzenler; satış ekibinin organizasyonları birlikte takip etmesine yardımcı olur.",
+          "kind": "addon",
+          "sourceRefs": [
+            "opera"
+          ],
+          "product": {
+            "name": "OPERA Cloud Satış ve Etkinlik Modülü (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "multiProperty",
+          "label": "OPERA Cloud Multi-property",
+          "brand": "oracle",
+          "description": "Birden fazla otelin verisini merkezi yönetir; zincir işletmelerde ortak operasyon takibini kolaylaştırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "opera"
+          ],
+          "product": {
+            "name": "OPERA Cloud Multi-property Modülü (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "ohip",
+          "label": "Oracle Hospitality Integration Platform (OHIP)",
+          "brand": "oracle",
+          "description": "OPERA ile diğer uygulamalar arasında API bağlantıları sağlar; tekrar veri girişini azaltacak entegrasyonların temelini oluşturur.",
+          "kind": "integration",
+          "sourceRefs": [
+            "opera"
+          ],
+          "product": {
+            "name": "OPERA Cloud OHIP Entegrasyon Erişimi (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          },
+          "note": "OHIP erişim, tüketim ve üçüncü taraf uygulama koşulları ayrıca doğrulanmalıdır."
+        },
+        {
+          "id": "pmsMobile",
+          "label": "Protel PMS Mobile",
+          "brand": "protel",
+          "description": "Personelin oda durumlarını ve görevleri mobil cihazlardan izlemesini sağlar; sahada çalışırken bilgiye erişimi hızlandırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "pmsMobile"
+          ],
+          "product": {
+            "name": "Protel PMS Mobile Kullanım Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          },
+          "note": "OPERA sürümü ve kullanılacak mobil fonksiyonlar için uyumluluk/kapsam teyidi gereklidir."
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "stage": "pms",
+      "type": "choice",
+      "title": "Oda satış kanalları için hangi çözümü değerlendirelim?",
+      "when": {
+        "question": "pms",
+        "equals": "opera"
+      },
+      "hint": "Bu ilk katalogda aynı ihtiyaç için tek alternatif seçilir; birlikte kullanım gereksinimi ayrıca değerlendirilir.",
+      "options": [
+        {
+          "id": "operaDistribution",
+          "label": "OPERA Cloud Distribution",
+          "brand": "oracle",
+          "description": "Oda fiyatlarını ve müsaitliği dağıtım kanallarında yönetir; kanal güncellemelerini merkezi hale getirir.",
+          "kind": "addon",
+          "sourceRefs": [
+            "opera"
+          ],
+          "product": {
+            "name": "OPERA Cloud Distribution Modülü (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "barboonChannel",
+          "label": "Barboon Kanal Yöneticisi",
+          "brand": "protel",
+          "description": "OTA kanallarındaki fiyat ve müsaitliği eşzamanlı günceller; farklı ekranlarda yapılan manuel işlemleri azaltır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "channel"
+          ],
+          "product": {
+            "name": "Barboon Kanal Yöneticisi Aboneliği (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "none",
+          "label": "Şu an ek çözüm gerekmiyor"
+        }
+      ]
+    },
+    {
+      "id": "directBooking",
+      "stage": "pms",
+      "type": "choice",
+      "title": "Otelin web sitesinden doğrudan rezervasyon alınacak mı?",
+      "when": {
+        "question": "pms",
+        "equals": "opera"
+      },
+      "hint": "Rezervasyon motoru, kanal yöneticisinden ayrı bir ihtiyaç olarak sorulur; ticari bağımlılık varsayılmaz.",
+      "options": [
+        {
+          "id": "barboonIbe",
+          "label": "Barboon İnternet Rezervasyon Motoru (IBE)",
+          "brand": "protel",
+          "description": "Misafirin otelin web sitesinden oda ayırtmasını sağlar; doğrudan rezervasyon kanalını güçlendirir.",
+          "kind": "addon",
+          "sourceRefs": [
+            "booking"
+          ],
+          "product": {
+            "name": "Barboon IBE Web Rezervasyon Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "none",
+          "label": "Hayır, şu an gerekmiyor"
+        }
+      ]
+    },
+    {
+      "id": "posNeeded",
+      "stage": "pos",
+      "type": "choice",
+      "title": "Restoran / kafe için yeni POS çözümü gerekiyor mu?",
+      "options": [
+        {
+          "id": "yes",
+          "label": "Evet, değerlendirelim"
+        },
+        {
+          "id": "no",
+          "label": "Hayır, şu an gerekmiyor"
+        }
+      ]
+    },
+    {
+      "id": "pos",
+      "stage": "pos",
+      "type": "choice",
+      "title": "Hangi POS çözümünü değerlendirelim?",
+      "when": {
+        "question": "posNeeded",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "id": "simphony",
+          "label": "Oracle MICROS Simphony Cloud POS",
+          "brand": "oracle",
+          "description": "Sipariş, adisyon ve şube operasyonlarını yönetir; servis ve kasa ekibinin aynı verilerle çalışmasını sağlar.",
+          "kind": "main",
+          "sourceRefs": [
+            "simphony"
+          ],
+          "product": {
+            "name": "MICROS Simphony Cloud POS Ana Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "simpra",
+          "label": "Simpra POS",
+          "brand": "simpra",
+          "description": "Masa servisi, hızlı servis ve paket siparişleri birleştirir; tek şubeden zincire restoran yönetimini kolaylaştırır.",
+          "kind": "main",
+          "sourceRefs": [
+            "simpraPos"
+          ],
+          "product": {
+            "name": "Simpra POS Ana İşletme Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "simphonyAddons",
+      "stage": "pos",
+      "type": "multi",
+      "title": "Simphony için hangi tamamlayıcı çözümler gerekli?",
+      "when": {
+        "question": "pos",
+        "equals": "simphony"
+      },
+      "hint": "KDS ve kiosk seçimleri yazılım çözümünü temsil eder; ekran, terminal ve diğer donanımlar ayrıca belirlenir.",
+      "options": [
+        {
+          "id": "oracleKds",
+          "label": "Oracle Mutfak Yönetim Sistemi (KDS)",
+          "brand": "oracle",
+          "description": "Siparişleri mutfak ekranında gösterir; hazırlama sırasını ve mutfak performansını takip etmeyi kolaylaştırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "simphony"
+          ],
+          "product": {
+            "name": "Oracle KDS Yazılım Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "waiterApp",
+          "label": "Protel Waiter App",
+          "brand": "protel",
+          "description": "Garsonun mobil cihazdan sipariş almasını sağlar; masadan POS sistemine bilgi aktarımını hızlandırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "simphony"
+          ],
+          "product": {
+            "name": "Protel Waiter App Mobil Sipariş Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "protelQr",
+          "label": "Protel QR Menü / O-Hub QR Menü",
+          "brand": "protel",
+          "description": "Misafire telefondan güncel menü sunar; ürün ve fiyat değişikliklerini dijital menüye taşımayı kolaylaştırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "protelQr"
+          ],
+          "product": {
+            "name": "Protel QR Menü Yazılım Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "protelKiosk",
+          "label": "Protel Kiosk",
+          "brand": "protel",
+          "description": "Misafirin kendi siparişini vermesini sağlar; siparişi Simphony sistemine ileterek kasa yoğunluğunu azaltmaya yardımcı olur.",
+          "kind": "addon",
+          "sourceRefs": [
+            "protelKiosk"
+          ],
+          "product": {
+            "name": "Protel Kiosk Sipariş Yazılımı Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "offer4",
+          "label": "Protel Offer4",
+          "brand": "protel",
+          "description": "Misafir profilleri ve cari hesapları kullanarak kampanya yönetimini destekler; kişiye uygun teklifler hazırlamayı kolaylaştırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "simphony"
+          ],
+          "product": {
+            "name": "Protel Offer4 Kampanya Yönetimi Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "simpraAddons",
+      "stage": "pos",
+      "type": "multi",
+      "title": "Simpra POS için hangi tamamlayıcı çözümler gerekli?",
+      "when": {
+        "question": "pos",
+        "equals": "simpra"
+      },
+      "hint": "Yazılım ve hizmet kapsamı teklif aşamasında doğrulanır; bu katalog donanım modeli veya garanti paketi içermez.",
+      "options": [
+        {
+          "id": "simpraKds",
+          "label": "Simpra KDS",
+          "brand": "simpra",
+          "description": "POS siparişlerini mutfak ekranına taşır; servis ile mutfağın siparişleri aynı sıradan izlemesini sağlar.",
+          "kind": "addon",
+          "sourceRefs": [
+            "simpraKds"
+          ],
+          "product": {
+            "name": "Simpra KDS Mutfak Ekranı Yazılım Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "insight",
+          "label": "Simpra Insight",
+          "brand": "simpra",
+          "description": "Satış ve işletme raporlarını mobil cihazdan gösterir; yöneticinin işletme dışında da performansı izlemesini sağlar.",
+          "kind": "addon",
+          "sourceRefs": [
+            "insight"
+          ],
+          "product": {
+            "name": "Simpra Insight Mobil Raporlama Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "simpraQr",
+          "label": "Simpra QR Menü",
+          "brand": "simpra",
+          "description": "Menüyü QR kodla misafirin telefonuna taşır; güncel ürün ve fiyatları basılı menü değiştirmeden sunar.",
+          "kind": "addon",
+          "sourceRefs": [
+            "simpraQr"
+          ],
+          "product": {
+            "name": "Simpra QR Menü Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "delivery",
+          "label": "Simpra Paket Servis",
+          "brand": "simpra",
+          "description": "Paket siparişleri ve kurye süreçlerini POS üzerinden takip eder; farklı sipariş kanallarının operasyonunu bir araya getirir.",
+          "kind": "addon",
+          "sourceRefs": [
+            "delivery"
+          ],
+          "product": {
+            "name": "Simpra Paket Servis Entegrasyon Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "simpraKiosk",
+          "label": "Simpra Kiosk",
+          "brand": "simpra",
+          "description": "Misafirin self servis sipariş vermesini sağlar; siparişin POS ve mutfak süreçlerine aktarılmasını kolaylaştırır.",
+          "kind": "addon",
+          "sourceRefs": [
+            "simpraKiosk"
+          ],
+          "product": {
+            "name": "Simpra Kiosk Sipariş Yazılımı Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "stage": "pos",
+      "type": "hardware",
+      "title": "Hangi donanımları ekleyelim?",
+      "hint": "Cihazları adetleriyle ekleyin; farklı bakım/garanti ihtiyaçlarını ayrı satırlarda tutabilirsiniz. KDS ve kiosk yazılımı ayrı seçilir. Hizmet seçenekleri teklif ihtiyacıdır; kesin paket veya uyumluluk taahhüdü değildir.",
+      "when": {
+        "any": [
+          {
+            "question": "pos",
+            "equals": "simphony"
+          },
+          {
+            "question": "pos",
+            "equals": "simpra"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "terminal",
+          "label": "POS cihazı",
+          "icon": "🖥️",
+          "description": "Kasada sipariş ve satış işlemlerini yürütmek için kullanılan dokunmatik terminal.",
+          "max": 999,
+          "properties": [
+            {
+              "id": "maintenance",
+              "label": "Bakım sözleşmesi",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "annual",
+                  "label": "1 yıl"
+                },
+                {
+                  "id": "threeYears",
+                  "label": "3 yıl"
+                }
+              ]
+            },
+            {
+              "id": "warranty",
+              "label": "Ek garanti",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "oneYear",
+                  "label": "+1 yıl"
+                },
+                {
+                  "id": "twoYears",
+                  "label": "+2 yıl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "printer",
+          "label": "Yazıcı",
+          "icon": "🖨️",
+          "description": "Adisyon veya mutfak sipariş fişlerini basmak için kullanılan yazıcı.",
+          "max": 999,
+          "properties": [
+            {
+              "id": "maintenance",
+              "label": "Bakım sözleşmesi",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "annual",
+                  "label": "1 yıl"
+                },
+                {
+                  "id": "threeYears",
+                  "label": "3 yıl"
+                }
+              ]
+            },
+            {
+              "id": "warranty",
+              "label": "Ek garanti",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "oneYear",
+                  "label": "+1 yıl"
+                },
+                {
+                  "id": "twoYears",
+                  "label": "+2 yıl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cashRegister",
+          "label": "Yazarkasa / Sabit ÖKC",
+          "icon": "🧾",
+          "description": "Kasa noktasında mali fiş işlemleri için değerlendirilen sabit yazarkasa cihazı.",
+          "max": 999,
+          "properties": [
+            {
+              "id": "maintenance",
+              "label": "Bakım sözleşmesi",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "annual",
+                  "label": "1 yıl"
+                },
+                {
+                  "id": "threeYears",
+                  "label": "3 yıl"
+                }
+              ]
+            },
+            {
+              "id": "warranty",
+              "label": "Ek garanti",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "oneYear",
+                  "label": "+1 yıl"
+                },
+                {
+                  "id": "twoYears",
+                  "label": "+2 yıl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mobileOkc",
+          "label": "Mobil yazarkasa / Mobil ÖKC",
+          "icon": "📱",
+          "description": "Masa başında veya hareketli hizmet noktalarında ödeme ve mali fiş işlemleri için cihaz.",
+          "max": 999,
+          "properties": [
+            {
+              "id": "maintenance",
+              "label": "Bakım sözleşmesi",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "annual",
+                  "label": "1 yıl"
+                },
+                {
+                  "id": "threeYears",
+                  "label": "3 yıl"
+                }
+              ]
+            },
+            {
+              "id": "warranty",
+              "label": "Ek garanti",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "oneYear",
+                  "label": "+1 yıl"
+                },
+                {
+                  "id": "twoYears",
+                  "label": "+2 yıl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kds",
+          "label": "KDS ekranı",
+          "icon": "🍳",
+          "description": "Mutfak siparişlerini göstermek için ekran donanımı; KDS yazılımı ayrıca seçilir.",
+          "max": 999,
+          "properties": [
+            {
+              "id": "maintenance",
+              "label": "Bakım sözleşmesi",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "annual",
+                  "label": "1 yıl"
+                },
+                {
+                  "id": "threeYears",
+                  "label": "3 yıl"
+                }
+              ]
+            },
+            {
+              "id": "warranty",
+              "label": "Ek garanti",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "oneYear",
+                  "label": "+1 yıl"
+                },
+                {
+                  "id": "twoYears",
+                  "label": "+2 yıl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kiosk",
+          "label": "Kiosk",
+          "icon": "🖥️",
+          "description": "Müşterinin kendi siparişini girebilmesi için dokunmatik donanım; kiosk yazılımı ayrıca seçilir.",
+          "max": 999,
+          "properties": [
+            {
+              "id": "maintenance",
+              "label": "Bakım sözleşmesi",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "annual",
+                  "label": "1 yıl"
+                },
+                {
+                  "id": "threeYears",
+                  "label": "3 yıl"
+                }
+              ]
+            },
+            {
+              "id": "warranty",
+              "label": "Ek garanti",
+              "default": "none",
+              "options": [
+                {
+                  "id": "none",
+                  "label": "Yok"
+                },
+                {
+                  "id": "oneYear",
+                  "label": "+1 yıl"
+                },
+                {
+                  "id": "twoYears",
+                  "label": "+2 yıl"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inventoryNeeded",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Stok ve maliyet yönetimi gerekiyor mu?",
+      "options": [
+        {
+          "id": "yes",
+          "label": "Evet, değerlendirelim"
+        },
+        {
+          "id": "no",
+          "label": "Hayır, şu an gerekmiyor"
+        }
+      ]
+    },
+    {
+      "id": "inventory",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Hangi stok / maliyet çözümünü değerlendirelim?",
+      "when": {
+        "question": "inventoryNeeded",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "id": "simpraInventory",
+          "label": "Simpra Inventory",
+          "brand": "simpra",
+          "description": "Satın alma, stok ve reçete maliyetlerini izler; tüketim farklarını ve ürün kârlılığını görmeyi kolaylaştırır.",
+          "kind": "main",
+          "sourceRefs": [
+            "inventory"
+          ],
+          "note": "Ana lisans bir sonraki soruda POS kaynağına göre eklenir."
+        },
+        {
+          "id": "materialsControl",
+          "label": "Oracle Materials Control (MC)",
+          "brand": "oracle",
+          "description": "Stok, satın alma ve tedarikçi tekliflerini yönetir; özellikle otellerde maliyet ve envanter kontrolünü destekler.",
+          "kind": "main",
+          "sourceRefs": [
+            "mc"
+          ],
+          "product": {
+            "name": "Oracle Materials Control Ana Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "inventoryPos",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Hangi POS sistemi kullanılıyor?",
+      "when": {
+        "question": "inventory",
+        "equals": "simpraInventory"
+      },
+      "hint": "Inventory için kullanılacak POS kaynağını seçin. Bu, yukarıda yeni siparişe eklediğiniz POS ile aynı veya müşterinin mevcut sistemi olabilir.",
+      "options": [
+        {
+          "id": "simpra",
+          "label": "SimpraPOS",
+          "description": "SimpraPOS kullanıcıları için temel lisans (Extension.SimpraPOS dahil).",
+          "note": "Simpra ekosistemi seçildi.",
+          "brand": "simpra",
+          "kind": "main",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Property",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "simphony",
+          "label": "Oracle Simphony",
+          "description": "3. Parti POS için temel lisans + Extension.OracleSimphony.",
+          "brand": "simpra",
+          "kind": "main",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "micros",
+          "label": "Micros 3700",
+          "description": "3. Parti POS için temel lisans + Extension.Micros3700.",
+          "brand": "simpra",
+          "kind": "main",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "other",
+          "label": "Diğer / Yok",
+          "description": "Entegrasyonsuz temel lisans.",
+          "note": "⚠️ UYARI: Bu POS sistemi için entegrasyonumuz yoktur. Satış verileri manuel veya Excel ile aktarılmalıdır.",
+          "brand": "simpra",
+          "kind": "main",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Şube Ana Modül",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "erpNeeded",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Muhasebe Programlarına veya ERP'ye aktarım isteniyor mu?",
+      "when": {
+        "question": "inventory",
+        "equals": "simpraInventory"
+      },
+      "options": [
+        {
+          "id": "yes",
+          "label": "Evet",
+          "description": "ERP markası belirleniyor.",
+          "note": "ERP markası belirleniyor."
+        },
+        {
+          "id": "no",
+          "label": "Hayır",
+          "description": "ERP entegrasyonu atlandı.",
+          "note": "ERP entegrasyonu atlandı."
+        }
+      ]
+    },
+    {
+      "id": "erpBrand",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Kullanıcı Logo veya Xero ERP/Muhasebe yazılımı kullanıyor mu?",
+      "when": {
+        "question": "erpNeeded",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "id": "logo",
+          "label": "Logo ERP",
+          "description": "Logo seçildi. Detay seviyesi belirlenecek.",
+          "note": "Logo seçildi. Detay seviyesi belirlenecek."
+        },
+        {
+          "id": "xero",
+          "label": "Xero ERP",
+          "description": "Xero seçildi. Detay seviyesi belirlenecek.",
+          "note": "Xero seçildi. Detay seviyesi belirlenecek."
+        },
+        {
+          "id": "other",
+          "label": "Hayır / Diğer",
+          "description": "Diğer ERP. Detay seviyesi belirlenecek.",
+          "note": "Diğer ERP. Detay seviyesi belirlenecek."
+        }
+      ]
+    },
+    {
+      "id": "erpDetail",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Stok kartlarının detaylı (kart bazında/API) olarak aktarılması gerekiyor mu?",
+      "when": {
+        "question": "erpNeeded",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "id": "api",
+          "label": "Evet (Detaylı/API)",
+          "description": "Detaylı aktarım için API lisansı verilmiştir.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect (API)",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "portal",
+          "label": "Hayır (Özet/Portal)",
+          "description": "Detaysız aktarım için Portal ürünü verilmiştir.",
+          "brand": "protel",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Protel Portal",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "einvoice",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Kullanıcı gelen E-Faturaların/E-İrsaliyelerin direkt Simpra Inventory'e düşmesini istiyor mu?",
+      "when": {
+        "question": "inventory",
+        "equals": "simpraInventory"
+      },
+      "options": [
+        {
+          "id": "yes",
+          "label": "Evet",
+          "description": "Evet"
+        },
+        {
+          "id": "no",
+          "label": "Hayır",
+          "description": "Lisans belirleme işlemi tamamlandı."
+        }
+      ]
+    },
+    {
+      "id": "integrator",
+      "stage": "inventory",
+      "type": "choice",
+      "title": "Kullanıcı hangi entegratör ile çalışıyor?",
+      "when": {
+        "question": "einvoice",
+        "equals": "yes"
+      },
+      "options": [
+        {
+          "id": "portalplus",
+          "label": "PortalPlus",
+          "description": "PortalPlus e-dönüşüm entegrasyonu.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "dia",
+          "label": "Dia Entegratör",
+          "description": "Dia Yazılım e-dönüşüm entegrasyonu.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "protel",
+          "label": "Protel Entegratör",
+          "description": "Protel e-dönüşüm entegrasyonu.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "sovos",
+          "label": "Sovos Digital Planet",
+          "description": "Sovos/Digital Planet e-dönüşüm entegrasyonu.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "elogo",
+          "label": "E-Logo Entegratör",
+          "description": "Logo e-dönüşüm entegrasyonu.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "qnb",
+          "label": "QNB Finansbank",
+          "description": "QNB e-dönüşüm entegrasyonu.",
+          "brand": "simpra",
+          "kind": "integration",
+          "sourceRefs": [
+            "inventoryRules"
+          ],
+          "product": {
+            "name": "Simpra Inventory Connect E-Fatura/E-İrsaliye",
+            "licenseNameIsExample": false,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "other",
+          "label": "Hiçbiri / Diğer",
+          "description": "Sadece listedeki entegratörler (PortalPlus, Dia, Protel, Sovos, Logo, QNB) desteklenmektedir.",
+          "note": "Sadece listedeki entegratörler (PortalPlus, Dia, Protel, Sovos, Logo, QNB) desteklenmektedir."
+        }
+      ]
+    },
+    {
+      "id": "reservationNeeds",
+      "stage": "reservation",
+      "type": "multi",
+      "title": "Hangi rezervasyon operasyonları yönetilecek?",
+      "hint": "Masa rezervasyonu ile SPA randevusu farklı ihtiyaçlardır. Otelde ikisi birlikte seçilebilir; PMS oda rezervasyonları ayrıca yönetilir.",
+      "options": [
+        {
+          "id": "table",
+          "label": "Restoran / masa rezervasyonları",
+          "description": "Web, telefon ve diğer kanallardan gelen masa taleplerini yönetmek için çözüm seçin."
+        },
+        {
+          "id": "spa",
+          "label": "Reservation Assistant — SPA / Aktivite",
+          "brand": "protel",
+          "description": "SPA randevularını ve personel atamalarını planlar; hizmet saatleri ve kaynak kullanımını düzenlemeye yardımcı olur.",
+          "kind": "main",
+          "sourceRefs": [
+            "ra"
+          ],
+          "product": {
+            "name": "Reservation Assistant SPA Rezervasyon Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          },
+          "when": {
+            "question": "business",
+            "equals": "hotel"
+          },
+          "note": "Protel portföyünde sunulan çözüm olarak etiketlenmiştir; üretici ve ticari lisans bilgisi ayrıca teyit edilir. Bu katalogda ayrı RA eklentisi tanımlanmaz."
+        }
+      ]
+    },
+    {
+      "id": "tableReservation",
+      "stage": "reservation",
+      "type": "choice",
+      "title": "Hangi masa rezervasyonu çözümünü değerlendirelim?",
+      "when": {
+        "question": "reservationNeeds",
+        "includes": "table"
+      },
+      "hint": "Aynı masa rezervasyonu ihtiyacı için tek çözüm seçin. Ticari ürün adını ve POS bağlantısını teklif öncesinde teyit edin.",
+      "options": [
+        {
+          "id": "checkPlace",
+          "label": "Check and Place",
+          "brand": "protel",
+          "description": "Masa rezervasyonlarını ve misafir tercihlerini kaydeder; oturma planını ve ön ödeme süreçlerini birlikte takip etmeyi sağlar.",
+          "kind": "main",
+          "sourceRefs": [
+            "checkPlace"
+          ],
+          "product": {
+            "name": "Check and Place Masa Rezervasyonu Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        },
+        {
+          "id": "simpraReservation",
+          "label": "Simpra Reservation",
+          "brand": "simpra",
+          "description": "Çevrim içi masa rezervasyonu, misafir bilgileri ve ön ödeme takibini birleştirir; şubelerin rezervasyonlarını merkezi izlemeyi sağlar.",
+          "kind": "main",
+          "sourceRefs": [
+            "reservation"
+          ],
+          "product": {
+            "name": "Simpra Reservation Masa Rezervasyonu Lisansı (Örnek)",
+            "licenseNameIsExample": true,
+            "unit": "teklif kalemi"
+          }
+        }
+      ]
+    }
+  ]
+}
